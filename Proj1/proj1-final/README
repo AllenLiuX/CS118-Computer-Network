@@ -1,0 +1,16 @@
+NAME: Wenxuan Liu
+EMAIL: allenliux01@163.com
+ID: 805152602
+
+Design of my Server:
+My server is designed to be a linear process that first builds the TCP socket on localhost with given port number(or default to be 7000), listen to the sockfd, and continuously accept requests in a while loop. Then, the server parses the request based on my sequential encapsulated functions. get_filename() first gets the filename in the request's first header line's second word, then translate all the '%20' into space character. file_handler() would open the current directory and iterate the filenames to match the requested one, and call the function extension_parser() to get the extension when the filename matched, and then fread the content of such file into an allocated buffer. Last, response_sender() will be called to write the corresponding header lines into the newsockfd, and write the content buffer too after writing a blank line. After all the response message written and requests handled, free the buffer and close the socket.
+
+Problems I ran into:
+I struggled to handle the situation for parse the extension given a file's name. The First problem is to get the characters after the period as the extension type. I first tried to examine the character one by one and look for the period, by which I can also translate the '%20' into space during the process. However, that was a little complicated and I then found an easier way and handled this by using string library function strtok twice by separate the string by the period, and get the characters stored in the second returned value. It makes the process look much more neat, readable, and easier for debug. 
+Then, I also debugged for a while for the situation that the file is a binary file. I found that I have to return immediately when I find there is no period in the filename in my extension_parser function. Otherwise, the control flow will go into another if statement and get unexpected behavior. 
+Also, I found reading the file in the directory and get its length is a little tricky. I have to use a direct library function fseek to first points to the end of the file and get the length of the file by using ftell. 
+
+Additional libraries:
+I used my own code from my projects in CS 111 for the process of establishing socket.
+Also, I used TA's code in discussion for reference. 
+Besides, I read tutorials on csdn and runoob.com for the usage of fseek, ftell, strtok, dirent.h, string.h and so on. I used their code examples for reference.

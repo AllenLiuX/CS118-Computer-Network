@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage{homework}
+\solstrue
+
+\renewcommand{\hmwkTitle}{Homework 2}
+
+\begin{document}
+\mktitle
+
+
+\begin{problem}
+
+How does the web server (e.g., Amazon) identify users when you do the Internet shopping?
+Please briefly explain how it works with HTTP protocol step by step.
+
+ \medskip
+ \begin{answer}{45em}
+ 	TODO: Write your answer here.
+  \end{answer}
+
+\end{problem}
+
+%
+\newpage
+\begin{problem}
+
+Suppose within your Web browser you click on a link to obtain a Web page from a web server $S$.
+The web page is a HTML file and the HTML file further contains references to 9 small JPEG files on the same server $S$.
+However, $S$'s IP address is not cached in your local host, so a DNS lookup is required.
+Suppose that $n$ DNS servers are visited by your browser before you get $S$'s IP address.
+Let $\mathrm{RTT_1}$, $\mathrm{RTT_2}$, ..., $\mathrm{RTT_n}$ denote the RTTs (round-trip time) of visiting each of the $n$ DNS server and $\mathrm{RTT_0}$ denote the RTT between the local host and $S$.
+If we ignore file transmission time for DNS responses, HTML file, and JPEG files, how much time elapses from when the client clicks on the link until the client receives all objects with:
+
+\begin{enumerate}
+\item Non-persistent HTTP with no parallel TCP connections?
+\item Non-persistent HTTP with the browser configured for 5 parallel connections?
+\item Persistent HTTP with no parallel TCP connections?
+\item Persistent HTTP with the browser configured for arbitrarily many parallel connections?
+\end{enumerate}
+
+\begin{answer}{40em}
+	TODO: Write your answer here.
+\end{answer}
+
+\end{problem}
+%
+
+%%
+\newpage
+\begin{problem}
+
+How does SMTP marks the end of a message body? How about HTTP? Can HTTP use the same method as SMTP to mark the end of the message body?
+
+\medskip
+\begin{answer}{40em}
+	TODO: Write your answer here.
+\end{answer}
+
+\end{problem}
+
+\newpage
+\begin{problem}
+Suppose your department has a local DNS server for all computers in the department.
+
+\begin{enumerate}
+\item Suppose you are an ordinary user (i.e., not a network/system administrator). Can you determine if an external Web site was likely accessed from a computer in your department a couple of seconds ago? Explain.
+
+\item Now suppose you are a system administrator and can access the caches in the local DNS servers of your department. Can you propose a way to roughly determine the Web servers (outside your department) that are most popular among the users in your department? Explain.
+\end{enumerate}
+
+  \begin{answer}{40em}
+  	TODO: Write your answer here.
+  \end{answer}
+
+\end{problem}
+
+\newpage
+\begin{problem}
+	Consider distributing a file of $F = 15$ Gbits to $N$ peers.
+	The server has an upload rate of $u_s = 30$ Mbps, and each peer has a download rate of $d_1 = 2$ Mbps and an upload rate of $u$.
+	For N = 10 and 100, and $u$ = 300 Kbps and 2 Mbps, prepare a chart giving the minimum distribution time for each of the combinations of N and u for both client-server distribution and P2P distribution (i.e., there are 8 distribution time values in total).
+	In this problem, we assume $1K = 1 \times 10^3$, $1M = 1 \times 10^6$, $1G = 1 \times 10^9$.
+
+
+	Please fulfill your answers into the following two charts and briefly explain how you get them.
+
+	\begin{answer}{40em}
+
+		\begin{center}
+			\normalsize
+			\textbf{Client-Server distribution} \\
+			\vspace{0.2cm}
+			\begin{tabular}{ | m{2cm} || m{4.5cm} | m{4.5cm} |}
+				\hline
+				u\textbackslash N & 10 & 100 \\
+				\hline
+				\hline
+				300Kbps &   &   \\
+				\hline
+				2Mbps &   &   \\
+				\hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\normalsize
+			\textbf{P2P distribution} \\
+			\vspace{0.2cm}
+			\begin{tabular}{ | m{2cm} || m{4.5cm} | m{4.5cm} |}
+				\hline
+				u\textbackslash N & 10 & 100 \\
+				\hline
+				\hline
+				300Kbps &   &   \\
+				\hline
+				2Mbps &   &   \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{answer}
+
+\end{problem}
+
+\end{document}
